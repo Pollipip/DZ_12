@@ -32,7 +32,7 @@ def print_data():
         print(''.join(data_first_list))
 
 
-# Изменяет информацию из файла
+# Редактирование записи
 def edit_data():
     print("\n Имя | Фамилия | Телефон  | Город")
     with open('DZ_9_Polupanova/data_1.txt', 'r', encoding='utf-8') as data:
@@ -42,22 +42,22 @@ def edit_data():
 
     index_delete_data = int(input("Введите номер для редактирования: "))
     tel_book_lines = 'DZ_9_Polupanova/data_1.txt'.split('\n')
-    edit_tel_book_lines = tel_book_lines[index_delete_data]
-    elements = edit_tel_book_lines.split(' | ')
+    edit_data = tel_book_lines[index_delete_data]
+    data_2 = edit_data.split(' | ')
     name_data = input("Введите Имя: ")
     phone_data = input("Введите номер телефона: ")
     
     if len(name_data) == 0:
-        fio = elements[1]
-    if len(phone) == 0:
-        phone = elements[2]
+        name_data = data_2[1]
+    if len(phone_data) == 0:
+        phone_data = data_2[2]
         edited_line = f"{name_data} | {phone_data}"
         tel_book_lines[index_delete_data] = edited_line
-        print(f"Запись — {edit_tel_book_lines}, изменена на — {edited_line}\n")
+        print(f"Запись — {edit_data}, изменена на — {data_2}\n")
     with open('DZ_9_Polupanova/data_1.txt', 'w', encoding='utf-8') as f:
         f.write("\n".join(tel_book_lines))
 
-# Удаляет информацию из файла
+# Удаляет запись
 def delete_data():
     print("\nПП | ФИО | Телефон")
     with open('DZ_9_Polupanova/data_1.txt', "r", encoding='utf-8') as data:
